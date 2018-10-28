@@ -1,10 +1,8 @@
 import turtle 
-turtle.addshape("chocolate.gif")
-turtle.shape("chocolate.gif")
-
-
-
-
+while true:
+	turtle.forward(200)
+	turtle.right(50)
+	turtle.forward(140)
 
 
 
