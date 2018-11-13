@@ -75,41 +75,87 @@ from tkinter import simpledialog
 # Grade: F
 # Student is failing.
 
-exam_one = int(simpledialog.askstring("Input", "input exam grade one", parent=tk.Tk().withdraw()))
+#exam_one = int(simpledialog.askstring("Input", "input exam grade one", parent=tk.Tk().withdraw()))
 
-exam_two = int(simpledialog.askstring("Input exam grade two: ", parent=tk.Tk().withdraw()))
+#exam_two = int(simpledialog.askstring("Input exam grade two: ", parent=tk.Tk().withdraw()))
 
-exam_3 = int(simpledialog.askstring("Input exam grade three: ", parent=tk.Tk().withdraw()))
+#exam_3 = int(simpledialog.askstring("Input exam grade three: ", parent=tk.Tk().withdraw()))
 
-grades = [exam_one exam_two exam_three]
-sum = 0
-for grade in grade:
-  sum = sum + grade
+#grades = [exam_one, exam_two ,exam_three]
+#sum = 0
+#for grade in grade:
+  #sum = sum + grade
 
-avg = sum / len(grdes)
+#avg = sum / len(grdes)
 
-if avg >= 90:
-    letter_grade = "A"
-elif avg >= 80 and avg < 90:
-    letter_grade = "B"
-elif avg > 69 and avg < 80:
-    letter_grade = "C"
-elif avg <= 69 and avg >= 65:
-    letter_grade = "D"
-else:
-    letter_grade = "F"
+#if avg >= 90:
+    #letter_grade = "A"
+#elif avg >= 80 and avg < 90:
+    #letter_grade = "B"
+#elif avg > 69 and avg < 80:
+    #letter_grade = "C"
+#elif avg <= 69 and avg >= 65:
+    #letter_grade = "D"
+#else:
+    ##letter_grade = "F"
 
-for grade in grades:
-    print("Exam: " + str(grade))
+#for grade in grades:
+    #print("Exam: " + str(grade))
 
-    print("Average: " + str(avg))
+    #print("Average: " + str(avg))
 
-    print("Grade: " + letter_grade)
+    #print("Grade: " + letter_grade)
 
-if letter_grade is == "F":
-    print("Student is failing.")
-else:
-    print ("Student is passing.")
+#if letter_grade is  "F":
+    #print("Student is failing.")
+#else:
+  #  print ("Student is passing.")
 
 
+#class Person(object):
+   #def __init__(self, name, fav_food,age):
+       #self.name = name
+       #self.fav_food = fav_food
+       #self.age = age
+
+
+   #def define_color(self, color="Red"):
+       #self.color = color
+
+   #def print_info(self):
+       #print("My name is " + self.name + ", I'm " + str(self.age) + " years old.")
+       #print("My favorite food is " + self.fav_food + " and my favorite color is " + self.color)
+       #fav_food= chocolate
+
+#a = Person("Britney", "Pizza", 16)
+#a.define_color("Black")
+#a.print_info()
+
+#b = Person("Jake", 15)
+#b.print_info()
+
+
+#class Bear(object):
+    #def __init__(self, name):
+    	#self.name=name
+    	#b=("may")
+        #print(“A new bear created. Its name is: “ + name)
+    
+    #def say_hi(self):
+        #print(“Hi! I’m a bear. My name is “ + name)
+#my_bear = Bear(“Danny”)
+#print(my_bear.say_hi())
+
+class story(object):
+	def __init__(self,name,color,number):
+		self.name= name
+		self.color= color
+		self.number= number
+	def tell():
+		print(“This is a tale about “ + self.number + “ balloons. The first kid is “ + self.name + “ who got a “ + self.color + “balloon”)
+
+r= story()
+balloons = 5
+name = “Ron”
+color = “Yellow”
 
