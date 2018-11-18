@@ -52,8 +52,8 @@
 
 
 
-import tkinter as tk
-from tkinter import simpledialog
+#import tkinter as tk
+#from tkinter import simpledialog
 # Calculating Grades (ok, let me think about this one)
 
 # Write a program that will average 3 numeric exam grades, return an average test score, a corresponding letter grade, and a message stating whether the student is passing.
@@ -146,16 +146,48 @@ from tkinter import simpledialog
 #my_bear = Bear(“Danny”)
 #print(my_bear.say_hi())
 
-class story(object):
-	def __init__(self,name,color,number):
-		self.name= name
-		self.color= color
-		self.number= number
-	def tell():
-		print(“This is a tale about “ + self.number + “ balloons. The first kid is “ + self.name + “ who got a “ + self.color + “balloon”)
+#class story(object):
+	#def __init__(self,name,color,number):
+		#self.name= name
+		#self.color= color
+		#self.number= number
+	#def tell(self):
+		#print("This is a tale about"  + self.number + " balloons. The first kid is" + self.name + " who got a "+ self.color + "balloon")
 
-r= story()
-balloons = 5
-name = “Ron”
-color = “Yellow”
+
+#r=story("Ron", "Yellow", 5)
+
+
+
+#class Cake(object):
+	#def __init__(self, flavor):
+		#self.flavor = flavor
+	
+	#def eat(self):
+		#print("Yummy!!! Eating a ",self.flavor, "cake")
+
+#c=Cake("chocolate")
+# what I want to be printed: Yummy!!! Eating a chocolate cake :)
+
+class Cat(object):
+	def __init__(self,name,age):
+		self.name = name
+		self.age = age
+	def birthday(self):
+		self.age += 1
+		if self.age >= 100:
+			print("Dong dong, the cat is dead!")
+		else:
+			print(self.name + "hasing its "+ str(self.age) +"birthday!")
+
+my_cat = Cat("salem",8)
+print(my_cat.birthday())
+# what I want: my cat to celebrate its 8th birthday (and all the 
+#birthdays that come before that)
+
+
+
+
+
+
 
