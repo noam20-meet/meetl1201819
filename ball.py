@@ -6,11 +6,11 @@ import math
 class Ball(Turtle):
 	def __init__ (self,x,y,dx,dy,r,color):
 		Turtle.__init__(self)
+		self.penup()
 		self.goto(x,y)
 		self.shape("circle")
 		self.shapesize(r/10)
 		self.color(color)
-		self.penup()
 		self.dx=dx
 		self.dy=dy
 		self.r=r
@@ -27,7 +27,7 @@ class Ball(Turtle):
 
 		if (up_side_ball>=screen_height/2) or (down_side_ball>=screen_height/2):
 			self.dy= -self.dy
-		elif (right_side_ball>=screen_width/2) or (up_side_ball>=screen_width/2):
+		elif (right_side_ball>=screen_width/2) or (left_side_ball>=screen_width/2):
 			self.dx= -self.dx
 
 
