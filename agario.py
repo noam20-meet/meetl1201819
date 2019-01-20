@@ -3,8 +3,13 @@ import time
 import random
 from ball import Ball
 
+global score
+score=0
 turtle.tracer(0,0)
 turtle.hideturtle()
+turtle.penup()
+turtle.goto(200,250)
+turtle.write(score,font=("Arial",16,"normal"))
 
 global running 
 running = True 
@@ -14,8 +19,14 @@ global screen_width
 screen_width= turtle.getcanvas().winfo_width()/2
 global screen_height
 screen_height= turtle.getcanvas().winfo_height()/2
+# global score
+# score=0
 
-my_ball=Ball(0,0,2,2,50,"blue")
+screen=turtle.Screen()
+screen.addshape("uriel2.gif")
+my_ball=Ball(0,0,2,2,40,"blue")
+my_ball.shape("uriel2.gif")
+
 
 
 number_of_balls=5
@@ -41,18 +52,6 @@ for i in range(number_of_balls):
 	new_ball= Ball(x,y,dx,dy,radius,color)
 	balls.append(new_ball)
 
-def timer():
-    global n
-    n = n - 1
-    clock.penup()
-    clock.hideturtle()
-    clock.goto(0,300)
-    clock.clear()
-    clock.write(str(n), move = True, align = 'center', font=("Times New Roman",30,"normal"))
-    if n == 0:
-        print("Your battery ran out! Good luck next time!")
-        quit()
-    turtle.ontimer(timer, 1000)
 
 def move_all_balls():
 	for ball in balls:
@@ -145,7 +144,18 @@ def check_myball_collision():
 				ball.y=y
 				ball.dx=dx
 				ball.dy=dy
+
+				global score
+				score=score+1
+				turtle.undo()
+				turtle.update()
+				print("yummmm you have eaten a ball!")   
+				turtle.write(score,font=("Arial", 16, "normal"))
+
+			
 	return True
+
+
 
 
 def movearound(event):
@@ -164,6 +174,18 @@ while running:
 	running=check_myball_collision()
 	turtle.update()
 	time.sleep(sleep)
+
+	if running==False:
+		you_lost=turtle.Turtle()
+		image = "gameover1.gif"
+		turtle.register_shape(image)
+		you_lost.shape(image)
+		you_lost.showturtle()
+		
+		turtle.update()
+		
+		time.sleep(3)
+
 
 
 
