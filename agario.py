@@ -2,15 +2,17 @@ import turtle
 import time
 import random
 from ball import Ball
-
+#score
 global score
 score=0
-turtle.tracer(0,0)
 turtle.hideturtle()
 turtle.penup()
 turtle.goto(200,250)
 turtle.write(score,font=("Arial",16,"normal"))
+turtle.tracer(0,0)
 
+
+#defying screen height and weight
 global running 
 running = True 
 global sleep
@@ -19,16 +21,15 @@ global screen_width
 screen_width= turtle.getcanvas().winfo_width()/2
 global screen_height
 screen_height= turtle.getcanvas().winfo_height()/2
-# global score
-# score=0
 
+#creating my ball
 screen=turtle.Screen()
 screen.addshape("uriel2.gif")
 my_ball=Ball(0,0,2,2,40,"blue")
 my_ball.shape("uriel2.gif")
 
 
-
+#def the balls
 number_of_balls=5
 minimum_ball_radius=10
 maximum_ball_radius=60
@@ -38,6 +39,7 @@ minimum_ball_dy=-5
 maximum_ball_dy=5
 balls=[]
 
+#def list
 for i in range(number_of_balls):
 	x= random.randint(-screen_width+maximum_ball_radius,screen_width-maximum_ball_radius)
 	y=random.randint(-screen_height+maximum_ball_radius,screen_height-maximum_ball_radius)
@@ -52,11 +54,11 @@ for i in range(number_of_balls):
 	new_ball= Ball(x,y,dx,dy,radius,color)
 	balls.append(new_ball)
 
-
+#def method that moves the balls
 def move_all_balls():
 	for ball in balls:
 		ball.move(screen_width,screen_height)
-
+#def method that check collide between ball1 to ball2
 def collide(ball1,ball2):
 	if ball1==ball2:
 		return False 
@@ -69,8 +71,8 @@ def collide(ball1,ball2):
 		return True
 	else:
 		return False
-
-def check_all_ball_collision():
+#def method that check collision between all balls
+def check_all_balls_collision():
 	for ball1 in balls:
 		for ball2 in balls:
 			if collide(ball1,ball2):
@@ -113,7 +115,7 @@ def check_all_ball_collision():
 					ball1.dy=dy
 			else:
 				print("no collide ")
-
+#def method that check collision with my ball
 def check_myball_collision():
 	for ball in balls:
 		if collide(my_ball,ball):
@@ -144,20 +146,26 @@ def check_myball_collision():
 				ball.y=y
 				ball.dx=dx
 				ball.dy=dy
-
+				#score
 				global score
 				score=score+1
 				turtle.undo()
+				turtle.goto(200,250)
 				turtle.update()
 				print("yummmm you have eaten a ball!")   
 				turtle.write(score,font=("Arial", 16, "normal"))
+
+				#background
+				bg=["bg1.gif","bg2.gif","bg3.gif","bg4.gif","bg5.gif"]
+				i= random.randint(0,4)
+				screen.bgpic(bg[i])				
 
 			
 	return True
 
 
 
-
+#defying a method that move the balls around
 def movearound(event):
 	x=event.x-screen_width
 	y=screen_height-event.y
@@ -165,16 +173,17 @@ def movearound(event):
 
 turtle.getcanvas().bind("<Motion>",movearound)
 turtle.listen()
-
+# calling the functions
 while running:
 	screen_width= int(turtle.getcanvas().winfo_width()/2)
 	screen_height= int(turtle.getcanvas().winfo_height()/2)
 	move_all_balls()
-	check_all_ball_collision()
+	check_all_balls_collision()
 	running=check_myball_collision()
+
 	turtle.update()
 	time.sleep(sleep)
-
+#game over 
 	if running==False:
 		you_lost=turtle.Turtle()
 		image = "gameover1.gif"
