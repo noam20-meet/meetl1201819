@@ -2,9 +2,11 @@ import turtle
 import time
 import random
 from ball import Ball
+
 #score
 global score
 score=0
+
 turtle.hideturtle()
 turtle.penup()
 turtle.goto(200,250)
@@ -30,16 +32,16 @@ my_ball.shape("uriel2.gif")
 
 
 #def the balls
-number_of_balls=5
+number_of_balls=8
 minimum_ball_radius=10
 maximum_ball_radius=60
-minimum_ball_dx=-5
-maximum_ball_dx=5
-minimum_ball_dy=-5
-maximum_ball_dy=5
-balls=[]
+minimum_ball_dx=-2
+maximum_ball_dx=2
+minimum_ball_dy=-2
+maximum_ball_dy=2
 
 #def list
+balls=[]
 for i in range(number_of_balls):
 	x= random.randint(-screen_width+maximum_ball_radius,screen_width-maximum_ball_radius)
 	y=random.randint(-screen_height+maximum_ball_radius,screen_height-maximum_ball_radius)
@@ -58,6 +60,7 @@ for i in range(number_of_balls):
 def move_all_balls():
 	for ball in balls:
 		ball.move(screen_width,screen_height)
+
 #def method that check collide between ball1 to ball2
 def collide(ball1,ball2):
 	if ball1==ball2:
@@ -71,6 +74,7 @@ def collide(ball1,ball2):
 		return True
 	else:
 		return False
+
 #def method that check collision between all balls
 def check_all_balls_collision():
 	for ball1 in balls:
@@ -115,6 +119,7 @@ def check_all_balls_collision():
 					ball1.dy=dy
 			else:
 				print("no collide ")
+
 #def method that check collision with my ball
 def check_myball_collision():
 	for ball in balls:
@@ -146,6 +151,7 @@ def check_myball_collision():
 				ball.y=y
 				ball.dx=dx
 				ball.dy=dy
+				
 				#score
 				global score
 				score=score+1
@@ -153,7 +159,9 @@ def check_myball_collision():
 				turtle.goto(200,250)
 				turtle.update()
 				print("yummmm you have eaten a ball!")   
-				turtle.write(score,font=("Arial", 16, "normal"))
+				turtle.color("red")
+				turtle.write(" Your Score:"+str(score),font=("Arial", 16, "normal"))
+
 
 				#background
 				bg=["bg1.gif","bg2.gif","bg3.gif","bg4.gif","bg5.gif"]
@@ -190,9 +198,10 @@ while running:
 		turtle.register_shape(image)
 		you_lost.shape(image)
 		you_lost.showturtle()
-		
+		turtle.goto(-70,70)
+		turtle.color("white")
+		turtle.write("Your Score is "+str(score),font=("Arial", 16, "normal"))
 		turtle.update()
-		
 		time.sleep(3)
 
 
